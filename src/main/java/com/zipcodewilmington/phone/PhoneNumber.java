@@ -2,10 +2,12 @@ package com.zipcodewilmington.phone;
 
 import com.zipcodewilmington.exceptions.InvalidPhoneNumberFormatException;
 
+import java.io.IOException;
+
 /**
  * Created by leon on 5/10/17.
  */
-public final class PhoneNumber {
+public final class PhoneNumber  {
     private final String phoneNumberString;
 
     // default constructor is uncallable
@@ -15,10 +17,20 @@ public final class PhoneNumber {
 
     // non-default constructor is package-protected
     protected PhoneNumber(String phoneNumber) throws InvalidPhoneNumberFormatException {
+
         //validate phone number with format `(###)-###-####`
-        if (!phoneNumber.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) {
-            throw new InvalidPhoneNumberFormatException();
-        }
+
+       // try {
+            if (!phoneNumber.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) {
+
+
+                // }
+                // catch (Exception e) {
+
+                throw new InvalidPhoneNumberFormatException();
+                // }
+            }
+
         this.phoneNumberString = phoneNumber;
     }
 
